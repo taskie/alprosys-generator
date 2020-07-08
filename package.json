@@ -1,0 +1,18 @@
+{
+  "name": "alprosys-generator",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Generator of ALPROSYS Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "taskie <t@skie.jp> (http://www.alprosys.com/)",
+  "license": "MIT",
+  "devDependencies": {
+    "ejs-cli": "^2.2.0",
+    "glob": "^7.1.6",
+    "html-minifier": "^4.0.0",
+    "stylus": "^0.54.7"
+  }
+}
