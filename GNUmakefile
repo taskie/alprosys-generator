@@ -36,15 +36,15 @@ files.mk: gen_files_mk.js
 
 include files.mk
 
-DST_HTML := $(patsubst contents/%.html, public/%.html, $(CONTENTS_HTML))
-DST_HTML += $(patsubst contents/%.ejs, public/%.html, $(CONTENTS_EJS))
+DST_HTML := $(patsubst contents/%.html, public/%.html, $(SRC_HTML))
+DST_HTML += $(patsubst contents/%.ejs, public/%.html, $(SRC_EJS))
 
-DST_CSS := $(patsubst contents/%.css, public/%.css, $(CONTENTS_CSS))
-DST_CSS += $(patsubst contents/%.styl, public/%.css, $(CONTENTS_STYL))
+DST_CSS := $(patsubst contents/%.css, public/%.css, $(SRC_CSS))
+DST_CSS += $(patsubst contents/%.styl, public/%.css, $(SRC_STYL))
 
-DST_JS := $(patsubst contents/%.js, public/%.js, $(CONTENTS_JS))
+DST_JS := $(patsubst contents/%.js, public/%.js, $(SRC_JS))
 
-DST_ASSETS := $(patsubst contents/%, public/%, $(CONTENTS_ASSETS))
+DST_ASSETS := $(patsubst contents/%, public/%, $(SRC_ASSETS))
 
 # sub rules
 
