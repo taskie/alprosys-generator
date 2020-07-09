@@ -15,6 +15,11 @@ rebuild:
 
 build: html css js assets
 
+.PHONY: serve
+
+serve:
+	npm run serve
+
 .PHONY: clean
 
 clean: clean_mk
