@@ -1,9 +1,7 @@
 # alprosys-generator
 
-## Requires
-
-* moreutils (sponge)
+the generator for [ALPROSYS](https://www.alprosys.com/).
 
 ## License
 
-MIT license
+MIT License
