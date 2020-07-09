@@ -73,7 +73,7 @@ public/%.css: contents/%.styl
 public/%.html: contents/%.ejs
 	@mkdir -p $(dir $@)
 	$(BIN)/ejs-cli -O '{"file":"$@"}' -f $< > $@
-	$(BIN)/html-minifier --collapse-whitespace $@ | sponge $@
+	$(BIN)/html-minifier --collapse-whitespace -o $@ $@
 
 public/%: contents/%
 	@mkdir -p $(dir $@)
