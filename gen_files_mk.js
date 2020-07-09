@@ -7,7 +7,7 @@ src.ejs = glob.sync("contents/**/*.ejs");
 src.css = glob.sync("contents/**/*.css");
 src.styl = glob.sync("contents/**/*.styl");
 src.js = glob.sync("contents/**/*.js");
-src.assets = glob.sync("contents/**/*.@(png|gif|jpg|svg|mp3|m4a|mid|ttf|eot|woff|md|json)");
+src.assets = glob.sync("contents/**/*.@(png|gif|jpg|svg|mp3|m4a|mid|ttf|eot|woff|md|json|ico)");
 
 for (let key in src) {
     let paths = src[key];
