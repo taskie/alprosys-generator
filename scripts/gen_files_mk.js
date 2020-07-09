@@ -9,7 +9,7 @@ src.styl = glob.sync("contents/**/*.styl");
 src.js = glob.sync("contents/**/*.js");
 src.assets = glob.sync("contents/**/*.@(png|gif|jpg|svg|mp3|m4a|mid|ttf|eot|woff|md|json|ico)");
 
-for (let key in src) {
+for (const [key, paths] of Object.entries(src)) {
     let paths = src[key];
     paths = paths.filter((path) => {
         // reject paths which start with _

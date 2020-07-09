@@ -2,6 +2,7 @@
 
 MAKEFLAGS := -r
 BIN := $(shell npm bin)
+DOTENV := $(BIN)/dotenv
 
 # main rules
 
@@ -18,13 +19,13 @@ build: html css js assets
 .PHONY: serve
 
 serve:
-	npm run serve
+	$(DOTENV) -- node scripts/server.js
 
 .PHONY: deploy
 
 deploy:
-	$(BIN)/dotenv -- scripts/deploy -n
-	$(BIN)/dotenv -- scripts/deploy -i
+	$(DOTENV) -- scripts/deploy -n
+	$(DOTENV) -- scripts/deploy -i
 
 .PHONY: clean
 
@@ -42,8 +43,8 @@ clobber: clean
 
 # files
 
-files.mk: gen_files_mk.js
-	node gen_files_mk.js > $@
+files.mk: scripts/gen_files_mk.js
+	$(DOTENV) -- node $< > $@
 
 include files.mk
 

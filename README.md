@@ -1,6 +1,6 @@
 # alprosys-generator
 
-the generator for [ALPROSYS](https://www.alprosys.com/).
+Generator of [ALPROSYS](https://www.alprosys.com/).
 
 ## License
 

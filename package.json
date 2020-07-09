@@ -2,12 +2,7 @@
   "name": "alprosys-generator",
   "private": true,
   "version": "1.0.0",
-  "description": "Generator of ALPROSYS Website",
-  "main": "src/index.js",
-  "scripts": {
-    "serve": "node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "description": "Generator of ALPROSYS.",
   "author": "taskie <t@skie.jp> (http://www.alprosys.com/)",
   "license": "MIT",
   "dependencies": {
