@@ -66,7 +66,7 @@ if (( DELETE )); then
   RSYNCOPTS+=(-d)
 fi
 
-SOURCE="$(realpath "$(dirname "$0")/../public")/"
+SOURCE="$(realpath "${PROGRAM_DIR}/../public")/"
 DESTINATION="$DESTINATION"
 
 echo "SOURCE: ${SOURCE}"
