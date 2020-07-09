@@ -2,5 +2,5 @@
 /public/
 .env*
 /files.mk
-/src/
+/contents
 tmp
