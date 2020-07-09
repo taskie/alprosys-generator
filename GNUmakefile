@@ -20,6 +20,12 @@ build: html css js assets
 serve:
 	npm run serve
 
+.PHONY: deploy
+
+deploy:
+	$(BIN)/dotenv -- scripts/deploy -n
+	$(BIN)/dotenv -- scripts/deploy -i
+
 .PHONY: clean
 
 clean: clean_mk

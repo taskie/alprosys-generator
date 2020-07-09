@@ -11,6 +11,7 @@
   "author": "taskie <t@skie.jp> (http://www.alprosys.com/)",
   "license": "MIT",
   "dependencies": {
+    "dotenv-cli": "^3.2.0",
     "ejs-cli": "^2.2.0",
     "express": "^4.17.1",
     "glob": "^7.1.6",

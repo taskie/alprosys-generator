@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+set -eu
+set -o pipefail
+
+PROGRAM="$(realpath "$0")"
+PROGRAM_DIR="$(dirname "$PROGRAM")"
+PROGRAM_NAME="$(basename "$PROGRAM")"
+
+usage () {
+  cat <<EOF
+${PROGRAM_NAME} - deploy ALPROSYS
+
+Usage:
+  ${PROGRAM_NAME} [-d] [-h] [-i] [-n]
+
+Options:
+  -d, --delete
+  -h, --help
+  -i, --interactive
+  -n, --dry-run
+EOF
+}
+
+export PATH=/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+declare -i DELETE=0 INTERACTIVE=0 DRY_RUN=0
+
+while (( $# > 0 )); do
+  opt="$1"
+  case "$opt" in
+  -d|--delete)
+    DELETE=1 ;;
+  -h|--help)
+    usage
+    exit 0 ;;
+  -i|--interactive)
+    INTERACTIVE=1 ;;
+  -n|--dry-run)
+    DRY_RUN=1 ;;
+  --)
+    shift
+    break ;;
+  -*)
+    usage >&2
+    echo "invalid option: ${opt}" >&2
+    exit 1 ;;
+  *)
+    break ;;
+  esac
+  shift
+done
+
+if (( $# > 0 )); then
+  usage >&2
+  echo "invalid arguments: $*" >&2
+  exit 1
+fi
+
+declare -a RSYNCOPTS=(-aPvz --checksum)
+
+if (( DRY_RUN )); then
+  RSYNCOPTS+=(-n)
+fi
+
+if (( DELETE )); then
+  RSYNCOPTS+=(-d)
+fi
+
+SOURCE="$(realpath "$(dirname "$0")/../public")/"
+DESTINATION="$DESTINATION"
+
+echo "SOURCE: ${SOURCE}"
+echo "DESTINATION: ${DESTINATION}"
+
+if (( INTERACTIVE )); then
+  printf 'ok? [y/N]> '
+  read line
+  case "$line" in
+  y|Y)
+    : ;;
+  *)
+    exit 1 ;;
+  esac
+fi
+
+rsync "${RSYNCOPTS[@]}" "$SOURCE" "$DESTINATION"
